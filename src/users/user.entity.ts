@@ -15,6 +15,11 @@ export class User {
     // @Exclude()
     password: string
 
+    @Expose()
+    getFullData() {
+        return `Name: ${this.email}, id: ${this.id}`
+    }
+
     //hooks
     //hooks only execute if we created a user entity instance with .create() not if used .save() only
     @AfterInsert()
@@ -33,10 +38,6 @@ export class User {
         console.log("Updated User with id", this.id)
     }
 
-    @Expose()
-    getFullData() {
-        return `Name: ${this.email}, id: ${this.id}`
-    }
 
     // @Transform(({ obj }) => obj.email.split('@')[0])
     // emailName: string

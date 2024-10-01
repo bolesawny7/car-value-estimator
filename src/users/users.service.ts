@@ -2,7 +2,7 @@ import { BadRequestException, HttpStatus, Injectable, NotFoundException } from '
 import { InjectRepository } from '@nestjs/typeorm';
 import { Like, Repository } from 'typeorm';
 import { User } from './user.entity';
-import { customException } from 'src/shared/customException';
+import { customException } from '../shared/customException';
 
 @Injectable()
 export class UsersService {
@@ -14,7 +14,8 @@ export class UsersService {
     }
 
     async findOne(id: number) {
-        if (!id) throw new customException("id not provided", HttpStatus.BAD_REQUEST);
+        // if (!id) throw new customException("id not provided", HttpStatus.BAD_REQUEST);
+        // if (!id) return null;
         const user = await this.repo.findOne({ where: { id } });
         if (!user) throw new NotFoundException('User Not Found')
         return user

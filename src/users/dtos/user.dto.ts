@@ -6,4 +6,5 @@ export class UserDto {
 
     @Expose()
     email: string;
+
 }

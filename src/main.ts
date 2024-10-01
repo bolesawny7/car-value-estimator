@@ -8,7 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(
     cookieSession({
-      keys: ['asdf']
+      keys: ['cookie-key']
     })
   )
 
